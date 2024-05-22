@@ -8,15 +8,26 @@ public class Mover : MonoBehaviour
   
     void Start()
     {
-        
+        PrintIstruction();
     }
 
     
     void Update()
     {
+        MovePlayer();
+    }
+
+    void PrintIstruction()
+    {
+        Debug.Log("Welcome to the game");
+        Debug.Log("Move your player with WASD or arrow keys");
+        Debug.Log("Don't hit the walls");
+    }
+
+    void MovePlayer()
+    {
         float xValue = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
         float zValue = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
-
         transform.Translate(xValue, 0, zValue);
     }
 }
